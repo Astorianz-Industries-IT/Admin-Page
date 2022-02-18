@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery-page</title>
+   
+<link rel="stylesheet" href="/Folder/folder-1/fontawesome-free-5.15.3-web/css/all.css">
+   
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+   
+</head>
+<style>
+     body{
+margin: 0;
+padding: 0;
+font-family: "Roboto", sans-serif;
+}
+
+header{
+z-index: 3;
+position: fixed;
+background: #22242A;
+padding: 20px;
+width: calc(100% - 0%);
+top: 0;
+height: 30px;
+}
+.left_area h3{
+color: #fff;
+margin: 0;
+text-transform: uppercase;
+font-size: 22px;
+font-weight: 900;
+}
+.left_area span{
+color: #19B3D3;
+}
+
+.logout_btn{
+padding: 5px;
+/* background: #d20404; */
+/* background: #D22B2B; */
+background: linear-gradient(to top, #003B6E, #0075DC);
+text-decoration: none;
+float: right;
+margin-top: -30px;
+margin-right: 40px;
+/* border-radius: 2px; */
+border-radius: 4px;
+font-size: 15px;
+font-weight: 600;
+color: #fff;
+transition: 0.5s;
+transition-property: background;
+}
+
+.logout_btn i{
+  margin-left: 6px;
+  /* color: #9658fe; */
+      border: 2px solid white;
+      border-radius: 5px;
+      padding: 1px 1px ;
+      /* background-color: #D22B2B; */
+      background: linear-gradient(to top, #6e0d00, #f76e56);
+}
+.logout_btn:hover{
+/* background: #0B87A6; */
+background: linear-gradient(to top, #6e0000, #f54424);
+}
+
+
+
+
+.sidebar{
+  background: #2f323a;
+  width: 250px;
+  margin-top: 70px;
+padding-top: 20px;
+/* height: 100vh;
+position: absolute; */
+
+height: 100%;
+display: flex;
+flex-direction: column;
+position: fixed;
+top: 0;
+left: 0;
+
+transition: 0.5s;
+transition-property: left;
+overflow-y: auto;
+z-index: 2;
+}
+
+
+
+
+
+
+.profile_info{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+
+.sidebar .profile_info .profile_image{
+width: 90px;
+height: 90px;
+border-radius: 100px;
+margin-bottom: 10px;
+}
+.sidebar .profile_info h4{
+color: #ccc;
+margin-top: 0;
+margin-bottom: 20px;
+}
+.sidebar a{
+color: #fff;
+display: block;
+width: 100%;
+line-height: 60px;
+text-decoration: none;
+padding-left: 40px;
+box-sizing: border-box;
+/* transition: 0.5s; */
+border-bottom: 1px solid black;
+border-top: 1px solid rgba(255,255,255,.1);
+border-left: 5px solid transparent;
+font-family: 'Open Sans', sans-serif;
+transition: all .5s ease; 
+
+transition-property: background;
+}
+.sidebar a:hover{
+background: #19B3D3;
+}
+.sidebar a:active{
+  background: #15fc62e1;
+}
+.sidebar a i{
+font-size: 23px;
+margin-right: 16px;
+}
+.sidebar a span{
+letter-spacing: 1px;
+/* text-transform: uppercase; */
+}
+#check{
+display: none;
+}
+
+label #toggle{
+  position: relative;
+  width: 34px;
+  height: 34px;
+  left: 280px;
+  margin: -1px 0;
+  position: fixed;
+  background: #19B3D3;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.2s;
+  border-radius: 5px;
+
+  box-sizing: border-box;
+  box-shadow: inset 0 0 10px #2e2b2b;
+}
+
+label #toggle:hover{
+  background: #0968a0;
+}
+label #toggle:active{
+  background: #076174;
+  box-shadow: 05px #666;
+  transform: translateY(4px);
+}
+
+label #toggle.active{
+  background: #f7226a;
+ 
+}
+
+label #toggle::before {
+content: "";
+position: fixed;
+width: 28px;
+height: 0.2rem;
+background: #fff;
+transition: 0.2s;
+transform: translateY(-10px);
+/* *************BOX SHADOW IS USED TO TO CREAT A SHADOW 
+IN THE MIDDLE IN WHITE */
+
+
+box-shadow: 0 10px 0 #fff;
+  }
+  label #toggle.active::before{
+  transform: translateY(0px) rotate(45deg);
+  box-shadow: 0 0 0 #fff;
+}
+
+
+
+label #toggle::after {
+content: "";
+position: absolute;
+width: 28px;
+height: 0.2rem;
+background: #fff;
+transition: 0.2s;
+transform: translateY(10px);
+
+  }
+  label  #toggle.active::after{
+  transform: translateY(0px) rotate(-45deg);
+
+}
+
+#check:checked ~ .sidebar{
+
+left: -250px;
+}
+section{
+width: (100% - 250px);
+margin-top: 60px;
+padding: 20px;
+margin-left: 250px;
+
+transition: 0.5s;
+min-height: 100%;
+}
+
+#check:checked ~ section{
+
+margin-left: 0px;
+}
+
+
+#check{
+display: none;
+}
+
+@media screen and (max-width: 550px) {
+ .sidebar{
+  left: -185px;
+  position: fixed;
+
+ }
+
+ .sidebar a span{
+display: none;
+}
+.sidebar a{
+font-size: 20px;
+margin-left: 165px;
+width: 100%;
+}
+.sidebar .profile_info{
+display: none;
+}
+/* .content{
+margin-left: 60px;
+
+}  */
+section{
+  margin-left: 0;
+  /* margin-top: 0; */
+  padding: 10px 20px;
+  transition: 0s;
+}
+
+#check:checked ~ section{
+  margin-left: 0;
+}
+.sidebar a:hover{
+background: #19B3D3;
+}
+.sidebar a:active{
+  background: #9ad6e0e1;
+}  
+label #toggle{
+ 
+  left: 225px;
+}
+
+/* **********body************ */
+
+}
+body{
+        background: #eee5e9;
+    }
+
+.grid{
+        margin: 80px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 30px;
+        /* align-items: center; */
+        place-items: center;
+    }
+    .grid > article{
+        background: #eee5e9;
+        border: none;
+        box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
+        border-radius: 20px;
+        text-align: center;
+        /* width: 250px; */
+        width: 350px;
+        transition: transform .3s;
+    }
+    .grid > article:hover{
+        transform: translateY(5px);
+        box-shadow: 2px 2px 26px 0px rgba(0, 0, 0, 0.3);
+       
+    }
+    .grid > article img{
+        width: 100%;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+    }
+    .text{
+        padding: 0px 20px 20px;
+
+    }
+    .text h3{
+        text-transform: uppercase;
+        font-size: 30px;
+    }
+.text button{
+    background: #04ac3c;
+    border-radius: 10px;
+    border: none;
+    color: #fff;
+    padding: 10px;
+    width: 100%;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.text button:hover{
+  background: #2cf51a;
+  color: #fff;
+  transform: translateY(2px);
+        box-shadow: 2px 2px 26px 0px rgba(153, 143, 143, 0.3);
+        letter-spacing: 4px;
+}
+@media(max-width: 980px){
+    .grid{
+        grid-template-columns: repeat(2, 1fr);
+       display: grid;
+       place-items: center;
+       align-items: center;
+       justify-content: center;
+    }
+    /* .grid > article{
+      width: 280px;
+    } */
+}
+.grid > article{
+    text-align: center;
+}
+@media(max-width: 768px){
+    .grid{
+        grid-template-columns: repeat(2, 1fr);
+       
+        
+    }
+    .grid > article{
+      width: 300px;
+    }
+}
+@media(max-width: 649px){
+    .grid{
+        grid-template-columns: repeat(1, 1fr);
+       display: grid;
+       place-items: center;
+       align-items: center;
+       justify-content: center;
+    }
+    .grid > article{
+      width: 350px;
+    }
+}
+.grid > article{
+    text-align: center;
+}
+@media(max-width: 500px){
+    .grid{
+        grid-template-columns: repeat(1, 1fr);
+       display: grid;
+       place-items: center;
+       align-items: center;
+       justify-content: center;
+    }
+    .grid > article{
+      width: 280px;
+    }
+}
+.grid > article{
+    text-align: center;
+}
+
+/* *****Body************** */
+</style>
+<body>
+  <input type="checkbox" id="check">
+  <!--header area start-->
+  <header>
+      <label for="check">
+          <div id="toggle"></div>
+      </label>
+    <div class="left_area">
+      <h3>Gallery <span>page</span></h3>
+    </div>
+    <div class="right_area">
+      <a href="#" class="logout_btn"><span>Logout</span><i class="fa fa-sign-out"></i></a>
+    </div>
+  </header>
+
+  
+
+
+
+  <div class="sidebar">
+      <div class="profile_info">
+        <img src="logo.png" class="profile_image" alt="">
+        <h4>Maharshi Dayanand university</h4>
+      </div>
+      <a href="/Folder/folder-1/index1.html"><i class="fas fa-table"></i><span>Index</span></a>
+      <a href="/Folder/Notification-pages/index.html"><i class=" fas fa-bell"></i><span>Notification</span></a>
+      <a href="#"><i class="fas fa-images" style="color: yellow;"></i><span>Gallery</span></a>
+      <a href="/Folder/folder-1/Form.html"><i class="fas fa-file-image"></i><span>Alumni</span></a>
+      <a href="/Folder/folder-1/indexFaculty.html"><i class="fas fa-file-alt"></i><span>Faculty </span></a>
+      <!-- <a href="#"><i class="fas fa-info-circle"></i><span>About</span></a> -->
+      <a href="/Folder/folder-1/setting.html"><i class="fas fa-sliders-h"></i><span>Settings</span></a>
+    </div>
+      <section>
+        <div class="container">
+          <main class="grid">
+              <article>
+                  <img src="Background-dark.png" alt="" srcset="">
+                  <div class="text">
+                      <h3>Alumni Gallery</h3>
+                      <p> Upload image into Notable Gallery</p>
+                      <button onclick="location.href='NotableGallery.html'" type="button">Click here</button>
+                  </div>
+              </article>
+              <article>
+                  <img src="Background-dark.png" alt="" srcset="">
+                  <div class="text">
+                      <h3>Gneral Gallery</h3>
+                      <p> Upload image into General Gallery</p>
+                      <button onclick="location.href='generalGallery.html'" type="button">Click here</button>
+                  </div>
+              </article>
+            
+          </main>
+      </div>
+      </section>
+</body>
+</html>

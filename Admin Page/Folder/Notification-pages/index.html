@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notification-page</title>
+
+  
+
+  <link rel="stylesheet" href="/Folder/folder-1/fontawesome-free-5.15.3-web/css/all.css">
+  <link rel="stylesheet" href="index.css" />
+  <link rel="stylesheet" href="index2.css" />
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons" media="all">
+</head>
+
+<style>
+  :root {
+    font-size: 15px;
+    --limit: 40rem;
+  }
+
+  .item2 {
+   
+
+
+    box-sizing: border-box;
+    font: 1rem/1rem sans-serif;
+    margin: 0;
+    padding: 0;
+    -webkit-text-size-adjust: 100%;
+
+    background-color: aliceblue;
+    padding: 1rem;
+  }
+
+  .form br,
+  hr {
+    display: none;
+  }
+
+  .item2 .form {
+    background-color: slategrey;
+    margin: 0 auto;
+    max-width: var(--limit);
+    padding: 1rem;
+    width: 100%;
+  }
+
+  #upload_file {
+    color: white;
+    display: block;
+    width: 100%;
+  }
+
+  #file_select {
+    background-color: white;
+    border: 0 none;
+    color: green;
+    margin: 1rem 0;
+    padding: 1rem;
+    width: 100%;
+    font-size: 1.1rem;
+  }
+
+  /* input[type='file'] {
+  display: none;
+} */
+  #file_select {
+    display: none;
+  }
+
+  #file_upload {
+    background-color:
+      white;
+    color: red;
+    cursor: pointer;
+    display: block;
+    margin: 1rem 0;
+    min-height: 3rem;
+    padding: 1rem;
+    width: 100%;
+    font-size: 1.1rem;
+  }
+
+  span br {
+    display: block;
+  }
+
+  #upload_btn,
+  #reset {
+    
+    border: 0 none;
+    color: white;
+    cursor: pointer;
+    display: block;
+    padding: 1rem;
+    text-align: left;
+    width: 100%;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 1.1rem;
+  }
+  #reset {
+    background-color: tomato;
+   
+    background: transparent rgb(207, 206, 206);
+   
+  }
+  #reset:hover {
+    background-color: crimson;
+   
+  }
+ 
+  button~button {
+    margin: 1rem 0 0 0;
+  }
+ 
+ 
+  
+</style>
+
+<body>
+  <div class="main-wrapper">
+    <img src="right-bottom-ellipse.png" alt="Ellipse" class="right-bottom-ellipse" />
+
+    <div class="main-card">
+      <div class="left-side-wrapper">
+        <div class="overlay"></div>
+
+       
+        <div class="wrapper">
+
+          <div class="bell" id="bell-1">
+            <div class="anchor material-icons layer-1">notifications_active</div>
+            <div class="anchor material-icons layer-2">notifications</div>
+            <div class="anchor material-icons layer-3">notifications</div>
+          </div>
+        
+        </div>
+
+
+        <div class="learn-more-wrapper">
+          <div class="software-eng-text">
+            <span>
+            Upload files  to <br />
+                <strong>  Notification Page</strong>
+            </span>
+          </div>
+
+          <div class="learn-more-btn">
+            <a href="#"><span>
+             Notification Page</span></a>
+            <em class="fas fa-angle-double-right"></em>
+          </div>
+        </div>
+
+      
+      </div>
+
+      <div class="right-side-wrapper">
+        <div class="inner-wrapper">
+          <div class="header-wrapper">
+            <span>Notification Upload Form</span>
+          </div>
+
+          <form action="#">
+            <div class="input-wrapper">
+              <label for="title" class="lab-title">Title:</label>
+              <div class="input">
+                <input type="text" name="title" class="field" placeholder="Enter the title " />
+                <!-- <em class="fas fa-envelope"></em> -->
+              </div>
+            </div>
+
+
+
+          
+
+
+
+            <div class="input-wrapper">
+              <label for="upload" class="lab-title title-upload">Upload File:</label>
+
+
+              <div class="item2">
+                <div class="form">
+                  <!-- <form> -->
+                  <label for="file_select" class="file-1" id="upload_file">Choose file format -  <span style="color: red;">*</span>pdf,  <span style="color: red;">*</span>docx  only<span id="file_upload"
+                    style="color: rgb(13, 156, 13);">
+                    Click here to select
+                      file...</span></label>
+                  <br>
+                  <input type="file" name="file" id="file_select" accept=".docx,.pdf"
+                    multiple="multiple">
+                  <br>
+                  <hr>
+                  <button type="reset" id="reset">Reset</button>
+                  <br>
+                  <!-- <button type="submit" id="upload_btn">Submit</button> -->
+                  <!-- </form> -->
+                </div>
+              </div>
+            </div>
+
+
+          
+        
+            <div class="input-wrapper">
+              <label for="description" class="lab-title title-upload">Description: (optional)</label>
+
+
+              <textarea class="form-input field" rows="5" type="text" name="description" style="height:auto" id="word"
+                placeholder="description" oninput="countWord()"></textarea>
+            
+
+              <span id="show1"> Word Count :
+                <span id="show">0</span>
+              </span>
+            </div>
+            <div class="action-wrapper">
+
+              <input type="button" class="back-btn" value="Go back!" onclick="history.back()">
+
+              <button class="button">Upload</button>
+            
+            </div>
+
+
+          
+          </form>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="./script.js"></script>
+  <!-- ***Word count ** -->
+
+  <script>
+    function countWord() {
+        // Get the input text value
+        var words = document
+            .getElementById("word").value;
+
+        // Initialize the word counter
+        var count = 0;
+
+        // Split the words on each
+        // space character
+        var split = words.split(' ');
+
+        // Loop through the words and
+        // increase the counter when
+        // each split word is not empty
+        for (var i = 0; i < split.length; i++) {
+            if (split[i] != "") {
+                count += 1;
+            }
+        }
+
+        // Display it as output
+        document.getElementById("show")
+            .innerHTML = count;
+    }
+
+</script>
+</body>
+
+</html>

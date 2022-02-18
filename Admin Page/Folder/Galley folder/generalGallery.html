@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amin Pages</title>
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" href="style331.css">
+</head>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+  }
+
+  header {
+    z-index: 3;
+    position: fixed;
+    background: #22242A;
+    padding: 20px;
+    width: calc(100% - 0%);
+    top: 0;
+    height: 30px;
+  }
+
+  .left_area h3 {
+    color: #fff;
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 22px;
+    font-weight: 900;
+  }
+
+  .left_area span {
+    color: #19B3D3;
+  }
+
+  .logout_btn {
+    padding: 5px;
+    /* background: #d20404; */
+    /* background: #D22B2B; */
+    background: linear-gradient(to top, #003B6E, #0075DC);
+    text-decoration: none;
+    float: right;
+    margin-top: -30px;
+    margin-right: 40px;
+    /* border-radius: 2px; */
+    border-radius: 4px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+    transition: 0.5s;
+    transition-property: background;
+  }
+
+  .logout_btn i {
+    margin-left: 6px;
+    /* color: #9658fe; */
+    border: 2px solid white;
+    border-radius: 5px;
+    padding: 1px 1px;
+    /* background-color: #D22B2B; */
+    background: linear-gradient(to top, #6e0d00, #f76e56);
+  }
+
+  .logout_btn:hover {
+    /* background: #0B87A6; */
+    background: linear-gradient(to top, #6e0000, #f54424);
+  }
+
+
+  
+  .sidebar {
+    background: #2f323a;
+    width: 250px;
+    margin-top: 70px;
+    padding-top: 20px;
+   
+
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    transition: 0.5s;
+    transition-property: left;
+    overflow-y: auto;
+    z-index: 2;
+  }
+
+
+
+
+
+
+  .profile_info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+  .sidebar .profile_info .profile_image {
+    width: 90px;
+    height: 90px;
+    border-radius: 100px;
+    margin-bottom: 10px;
+  }
+
+  .sidebar .profile_info h4 {
+    color: #ccc;
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+
+  .sidebar a {
+    color: #fff;
+    display: block;
+    width: 100%;
+    line-height: 60px;
+    text-decoration: none;
+    padding-left: 40px;
+    box-sizing: border-box;
+    /* transition: 0.5s; */
+    border-bottom: 1px solid black;
+    border-top: 1px solid rgba(255, 255, 255, .1);
+    border-left: 5px solid transparent;
+    font-family: 'Open Sans', sans-serif;
+    transition: all .5s ease;
+
+    transition-property: background;
+  }
+
+  .sidebar a:hover {
+    background: #19B3D3;
+  }
+
+  .sidebar a:active {
+    background: #15fc62e1;
+  }
+
+  .sidebar a i {
+    font-size: 23px;
+    margin-right: 16px;
+  }
+
+  .sidebar a span {
+    letter-spacing: 1px;
+    /* text-transform: uppercase; */
+  }
+
+  #check {
+    display: none;
+  }
+
+  
+  label #toggle {
+    position: relative;
+    width: 34px;
+    height: 34px;
+    left: 280px;
+    margin: -1px 0;
+    position: fixed;
+    background: #19B3D3;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.2s;
+    border-radius: 5px;
+
+    box-sizing: border-box;
+    box-shadow: inset 0 0 10px #2e2b2b;
+  }
+
+  label #toggle.active {
+    background: #f7226a;
+
+  }
+
+  label #toggle::before {
+    content: "";
+    position: fixed;
+    width: 28px;
+    height: 0.2rem;
+    background: #fff;
+    transition: 0.2s;
+    transform: translateY(-10px);
+    /* *************BOX SHADOW IS USED TO TO CREAT A SHADOW 
+IN THE MIDDLE IN WHITE */
+
+
+    box-shadow: 0 10px 0 #fff;
+  }
+
+  label #toggle.active::before {
+    transform: translateY(0px) rotate(45deg);
+    box-shadow: 0 0 0 #fff;
+  }
+
+
+
+  label #toggle::after {
+    content: "";
+    position: absolute;
+    width: 28px;
+    height: 0.2rem;
+    background: #fff;
+    transition: 0.2s;
+    transform: translateY(10px);
+
+  }
+
+  label #toggle.active::after {
+    transform: translateY(0px) rotate(-45deg);
+
+  }
+
+  
+
+  #check:checked~.sidebar {
+    /* left: -185px; */
+    left: -250px;
+  }
+
+  /* ************************ */
+  
+
+
+
+  section {
+    width: (100% - 250px);
+    margin-top: 60px;
+    padding: 20px;
+    margin-left: 250px;
+   
+    transition: 0.5s;
+    min-height: 100%;
+  }
+
+  #check:checked~section {
+
+    margin-left: 0px;
+  }
+
+
+  #check {
+    display: none;
+  }
+
+
+
+  
+
+
+
+  @media screen and (max-width: 550px) {
+    .sidebar {
+      left: -185px;
+      position: fixed;
+
+    }
+
+    .sidebar a span {
+      display: none;
+    }
+
+    .sidebar a {
+      font-size: 20px;
+      margin-left: 165px;
+      width: 100%;
+    }
+
+    .sidebar .profile_info {
+      display: none;
+    }
+
+    /* .content{
+  margin-left: 60px;
+
+}  */
+    section {
+      margin-left: 0;
+      /* margin-top: 0; */
+      padding: 10px 20px;
+      transition: 0s;
+    }
+
+    #check:checked~section {
+      margin-left: 0;
+    }
+
+    .sidebar a:hover {
+      background: #19B3D3;
+    }
+
+    .sidebar a:active {
+      background: #9ad6e0e1;
+    }
+
+    label #toggle {
+
+      left: 180px;
+    }
+
+
+
+  }
+</style>
+
+<body>
+  <input type="checkbox" id="check">
+  <!--header area start-->
+  <header>
+    <label for="check">
+      <div id="toggle"></div>
+    </label>
+    <div class="left_area">
+      <h3>Admin <span>page</span></h3>
+    </div>
+    <div class="right_area">
+      <a href="#" class="logout_btn"><span>Logout</span><i class="fa fa-sign-out"></i></a>
+    </div>
+  </header>
+
+  <div class="sidebar">
+    <div class="profile_info">
+      <img src="logo.png" class="profile_image" alt="">
+      <h4>Maharshi Dayanand university</h4>
+    </div>
+    <a href="#"><i class="fas fa-bell"></i><span>Notification</span></a>
+    <a href="#"><i class="fas fa-images"></i><span>Gallery</span></a>
+    <a href="#"><i class="fas fa-file-image"></i><span>File</span></a>
+    <a href="#"><i class="fas fa-file-alt"></i><span>Text </span></a>
+    <!-- <a href="#"><i class="fas fa-info-circle"></i><span>About</span></a> -->
+    <a href="#"><i class="fas fa-sliders-h"></i><span>Settings</span></a>
+  </div>
+  <section>
+   
+
+    <div class="textbox">
+      <div class="card">
+        <div class="banner">
+          <h1><strong>Upload Image</strong> to the gallery</h1>
+        </div>
+
+
+        <br>
+        <div class="item">
+          <label for="title">
+            <h3>Title:</h3>
+          </label>
+          <input type="text" id="title" name="title" placeholder="Use title case to get a better result" />
+
+        </div>
+
+        <div class="item2">
+
+          <div class="container">
+            <div class="wrapper">
+              <div class="image">
+                <img src="" alt="" id="edit" width="100%" height="100%">
+              </div>
+              <div class="content">
+                <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
+                <div class="text">No file choosen, yet! </div>
+              </div>
+              <div id="cancel-btn"><i class="fas fa-times"></i></div>
+              <div class="file-name"><i>File name here</i></div>
+
+            </div>
+            <input type="file" id="default-btn" hidden>
+            <button onclick="defaultBtnActive()" id="custom-btn">Choose a file</button>
+          </div>
+        </div>
+
+
+        <div class="item3">
+          <label for="caption">
+            <h3>Caption: </h3>
+          </label>
+          <textarea rows="3" placeholder="This caption should be descriptive"></textarea>
+        </div>
+
+
+        <!-- *****upload button **** -->
+        <div class="btn-block">
+          <button type="submit" href="/">Upload</button>
+         
+          <button onclick="location.href='Gallery.html'" type="cancel">Back</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script>
+    const wrapper = document.querySelector(".wrapper");
+    const fileName = document.querySelector(".file-name");
+    const cancelBtn = document.querySelector("#cancel-btn");
+    const defaultBtn = document.querySelector("#default-btn");
+    const customBtn = document.querySelector("#custom-btn");
+    // const img = document.querySelector("img");
+
+    const img = document.querySelector("#edit");
+
+
+    let regExp = /[0-9a-zA-Z\^\&\'\@\{\}\[\]\,\$\=\!\-\#\(\)\.\%\+\~\_]+$/;
+    // const img = document.querySelector("#custom-btn"); 
+    function defaultBtnActive() {
+      defaultBtn.click();
+    }
+    defaultBtn.addEventListener("change", function () {
+      const file = this.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function () {
+          const result = reader.result;
+          img.src = result;
+          wrapper.classList.add("active");
+        }
+        cancelBtn.addEventListener("click", function () {
+          img.src = "";
+          wrapper.classList.remove("active");
+        });
+        reader.readAsDataURL(file);
+      }
+      if (this.value) {
+        let valueStore = this.value.match(regExp);
+        fileName.textContent = valueStore;
+      }
+    })
+  </script>
+  <script>
+    const toggle = document.getElementById('toggle');
+    toggle.onclick = function () {
+
+      // here a class is created in the name of ACTIVE under div ID toggle In JS
+
+      toggle.classList.toggle('active');
+    }
+  </script>
+</body>
+
+</html>

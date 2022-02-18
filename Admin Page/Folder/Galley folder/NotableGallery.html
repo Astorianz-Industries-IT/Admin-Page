@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notable Gallery</title>
+
+    <link rel="stylesheet" href="fontawesome-free-5.15.3-web/css/all.css" />
+</head>
+<style>
+  html,
+  body {
+    min-height: 100%;
+  }
+
+   input, select, textarea, label,p  { 
+      padding: 0;
+      margin: 0;
+      outline: none;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 14px;
+      color: #666;
+      line-height: 22px;
+      }
+  h1 {
+    position: absolute;
+    margin: 0;
+    font-size: 40px;
+    color: #fff;
+    z-index: 2;
+    line-height: 83px;
+    letter-spacing: 6px;
+    word-spacing: 8px;
+  }
+
+  textarea {
+    width: calc(100% - 12px);
+    padding: 5px;
+  }
+
+  .testbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: inherit;
+    padding: 20px;
+  }
+
+  form {
+    width: 100%;
+    padding: 20px;
+    border-radius: 6px;
+    background: #fff;
+    box-shadow: 0 0 8px #05a139;
+  }
+
+  .banner {
+    position: relative;
+    height: 300px;
+    background: url("https://images.unsplash.com/photo-1612534859320-79465795d8dc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80");
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .banner::after {
+    content: "";
+    background-color: rgba(0, 0, 0, 0.2);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  input,
+ 
+  textarea {
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+
+  input {
+    width: calc(100% - 10px);
+    padding: 5px;
+  }
+
+ 
+  textarea {
+    width: calc(100% - 12px);
+    padding: 5px;
+  }
+
+ 
+
+  .item:hover p,
+  .item:hover i,
+ 
+  input:hover::placeholder {
+    color: #1f0066;
+  }
+
+  .item input:hover,
+ 
+  .item textarea:hover {
+    border: 1px solid transparent;
+    box-shadow: 0 0 3px 0 #1f0066;
+    color: #1f0066;
+  }
+
+  .item {
+    position: relative;
+    margin: 10px 0;
+  }
+
+  
+
+  .item span {
+    color: red;
+  }
+
+ 
+
+ 
+
+ 
+
+ 
+
+  .btn-block {
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  button {
+    width: 150px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: #095484;
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+    float: right;
+  }
+
+  button:hover {
+    background: #0666a3;
+  }
+
+  button[type="cancel"]{
+    width: 150px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: #f14729 ;
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+    float: left;
+  }
+  button[type="cancel"]:hover{
+    background:  #841b09;
+  }
+
+
+
+.item2{
+    display: grid;
+   
+    place-items: center;
+    text-align: center;
+    
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+}
+.container {
+    height: 390px;
+    width: 480px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* display: grid;
+   
+   place-items: center;
+   text-align: center; */
+   flex-direction: column;
+}
+
+.container .wrapper {
+    position: relative;
+    height: 300px;
+    width: 100%;
+    border-radius: 5px;
+    background-color: #fff;
+    border: 2px dashed #c2cdda;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.wrapper.active {
+    border: none;
+}
+
+.wrapper .image {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.wrapper .icon {
+    font-size: 100px;
+    color: #5863fe;
+}
+
+.wrapper .text {
+    font-size: 20px;
+    font-weight: 500;
+    color: #5b5b7b;
+}
+
+.wrapper #cancel-btn {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    font-size: 25px;
+    cursor: pointer;
+    color: #9658fe;
+    border: 2px solid white;
+    border-radius: 18px;
+    padding: 1px 5px ;
+    /* display: none; */
+    /* IT DISPLAY WHEN NO FILE IS THERE */
+
+    display: none;
+}
+
+/* OPTIONAL FOR CANCEL BUTTON */
+.wrapper.active:hover #cancel-btn {
+    display: block;
+}
+
+.wrapper #cancel-btn:hover {
+    color: red;
+}
+
+.wrapper.active:hover .file-name {
+    display: block;
+}
+
+
+.wrapper .file-name {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    color: #fff;
+    padding: 8px 0;
+    font-size: 18px;
+    display: none;
+    background: linear-gradient(135deg, #3a8ffe 0%, #0a0c80 100%);
+}
+
+.container #custom-btn {
+    margin-top: 17px;
+     width: 100%;
+    height: 40px;
+    display: block;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    background: #33a8e2;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    outline: none;
+
+
+}
+
+#custom-btn:hover {
+  background: #6eb8dd;
+  }
+  @media (max-width: 560px) {
+.banner h1{
+    letter-spacing: 2px;
+    word-spacing:4px ;
+}
+.container {
+    height: 350px;
+    width: 350px;
+}
+
+}
+@media (max-width: 470px) {
+
+.container {
+    height: 300px;
+    width: 300px;
+}
+
+}
+
+</style>
+
+<body>
+  <div class="testbox">
+    <form>
+      <div class="banner">
+        <h1>Alumni  Gallery  Upload  Form</h1>
+      </div>
+      <br />
+   
+      <fieldset>
+        <legend>
+          <h3>1. Title:</h3>
+        </legend>
+
+      
+       
+        <div class="item">
+         
+          <input type="text" name="name" required />
+          <p>Type the title of the uploading image<span style="color: red !important; display: inline; float: none;">*</span></p>
+        </div>
+      </fieldset>
+      <br />
+      <fieldset>
+        <legend>
+          <h3>2.Upload Image:</h3>
+        </legend>
+
+      
+
+            <div class="item2">
+        
+                <div class="container">
+                    <div class="wrapper">
+                        <div class="image">
+                            <img src="" alt="" id="edit" width="100%" height="100%">
+                        </div>
+                        <div class="content">
+                            <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
+                            <div class="text">No file choosen, yet! </div>
+                        </div>
+                        <div id="cancel-btn"><i class="fas fa-times"></i></div>
+                        <div class="file-name"><i>File name here</i></div>
+                    </div>
+                   
+                    <input type="file" id="default-btn" hidden>
+                    <button onclick="defaultBtnActive()" id="custom-btn">Choose a file</button>
+                </div>
+               
+            </div>
+    
+         
+        
+         
+      
+
+
+      </fieldset>
+      <br/>
+      <fieldset>
+        <legend>
+          <h3>3. Caption:</h3>
+        </legend>
+     
+        <div class="item">
+         
+          <textarea rows="3"></textarea>
+          <p>Type caption for the uploading image<span style="color: red !important; display: inline; float: none;">*</span></p>
+        </div>
+
+      </fieldset>
+      <div class="btn-block">
+        <button type="submit" href="/">Upload</button>
+        <button onclick="location.href='Gallery.html'" type="cancel">Back</button>
+        <!-- <input type="cancel" value="Back!" onclick="history.back()" > -->
+      </div>
+    </form>
+  </div>
+  <script>
+    const wrapper = document.querySelector(".wrapper");
+    const fileName = document.querySelector(".file-name");
+    const cancelBtn = document.querySelector("#cancel-btn");
+    const defaultBtn = document.querySelector("#default-btn");
+    const customBtn = document.querySelector("#custom-btn");
+    // const img = document.querySelector("img");
+
+    const img = document.querySelector("#edit");
+
+
+    let regExp = /[0-9a-zA-Z\^\&\'\@\{\}\[\]\,\$\=\!\-\#\(\)\.\%\+\~\_]+$/;
+    // const img = document.querySelector("#custom-btn"); 
+    function defaultBtnActive() {
+        defaultBtn.click();
+    }
+    defaultBtn.addEventListener("change", function () {
+        const file = this.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function () {
+                const result = reader.result;
+                img.src = result;
+                wrapper.classList.add("active");
+            }
+            cancelBtn.addEventListener("click", function () {
+                img.src = "";
+                wrapper.classList.remove("active");
+            });
+            reader.readAsDataURL(file);
+        }
+        if (this.value) {
+            let valueStore = this.value.match(regExp);
+            fileName.textContent = valueStore;
+        }
+    })
+</script>
+<script>
+    const toggle = document.getElementById('toggle');
+    toggle.onclick = function(){
+
+        // here a class is created in the name of ACTIVE under div ID toggle In JS
+
+        toggle.classList.toggle('active');
+    }
+</script>
+</body>
+</html>

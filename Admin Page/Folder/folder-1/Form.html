@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumni-form</title>
+</head>
+<style>
+  *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      text-transform: capitalize;
+      transition: all 0.3 linear;
+  }
+  
+.container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: #74ebd7;
+    /* background-image: linear-gradient(90deg, #74ebd7 0%, #9face6 100%); */
+    background-image: url("photo/Background-dark.png");
+    background-size: cover;
+}
+.box{
+    /* width: 300px;
+    height: 455px; */
+    width: 350px;
+    height: 500px;
+    background-color: #fff;
+    padding: 20px;
+    padding-top: 80px;
+    margin: 20px;
+    text-align: center;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+    /* overflow: hidden; */
+    position: relative;
+    z-index: 0;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.box .color{
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 150px;
+    height: 150px;
+    /* background: #f00; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    
+}
+
+.box .color::before{
+    content: 'Registration Form';
+    position: absolute;
+    width: 150%;
+    height: 40px;
+    background: #62baea;
+transform: rotate(-45deg) translateY(-20px);
+display: flex;
+justify-content: center;
+align-items: center;
+text-transform: uppercase;
+font-weight: 600;
+color: #fff;
+/* letter-spacing: 0.1em; */
+
+box-shadow: 0 5px 10px rgba(19, 17, 17, 0.1);
+}
+
+ .box .color::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    background: #4a98bf;
+    z-index: -1;
+    box-shadow: 140px -140px #4a98bf;
+/*  150px -10 = 140px */
+} 
+
+
+
+
+
+
+
+
+
+
+
+.box h3{
+    font-size: 35px;
+    padding: 20px 0;
+    color: #444;
+}
+.container .box .image{
+  margin: 10px 0;
+  height: 190px;
+  width: 190px;
+  background: #04d627;
+  padding: 3px;
+  border-radius: 50%;
+}
+.box .image img{
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+}
+
+
+
+.box p{
+    font-size: 15px;
+    color: #777;
+}
+.box button{
+    width: 150px;
+    height: 50px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    outline: none;
+    font-size: 17px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 40px;
+}
+.box button:hover{
+    letter-spacing: 2px;
+    opacity: .8;
+}
+.box::before{
+    width: 100%;
+    height: 100%;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.box::after{
+    width: 100%;
+    height: 100%;
+    background-color: #fbda61;
+    background-image: linear-gradient(45deg, #fbda61 0%, #fbda61 0%, #ff5acd 100%);
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -2;
+    clip-path: circle(20% at 90% 10%);
+    /* transition: .2s; */
+    transition: .5s;
+}
+.box .count{
+    position: absolute;
+    top: 15px;
+    right: 30px;
+    font-size: 50px;
+    font-weight: bolder;
+    color: #fff;
+
+}
+/* Can Target Multiple Child */
+.box:nth-child(2):after{
+    /* background-color: #0093e9;
+    background-image: linear-gradient(160deg, #0093e9 0%, #80d0c7 100%); */
+    background-color: #08aeea;
+    background-image: linear-gradient(160deg, #08aeea 0%, #2af598 100%);
+}
+
+.box:hover::after{
+  clip-path: circle(100%); 
+
+}
+.box:hover h3{
+    color: #fff;
+}
+.box:hover p{
+    color: #fff;
+}
+
+.box:hover button{
+    color: #333;
+    background-color: #fff;
+}
+
+.box:hover ::before{
+   
+    background-color: rgba(211, 46, 46, 0.897);
+}
+@media screen and (max-width: 750px) {
+    .container{
+        min-height: 1100px;
+    }
+}
+
+
+
+
+
+
+</style>
+<body>
+
+  
+<section>
+    <div class="container">
+        <div class="box">
+            <span class="color"></span>
+            <h3>Notable Alumni</h3>
+            <div class="image">
+                <img src="photo/B.png">
+              </div>
+            <!-- <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. At voluptatibus iste id reprehenderit quia ipsam recusandae, delectus quasi sequi molestiae debitis illo cupiditate aut? Aut facilis enim quod iusto voluptatum!</p> -->
+            <a href="Form1.html"><button>Click here</button></a>
+            <span class="count">1</span>
+        </div>
+        <div class="box">
+            <span class="color"></span>
+            <h3>Alumni</h3>
+            <div class="image">
+                <img src="photo/image.jpg">
+              </div>
+            <!-- <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. At voluptatibus iste id reprehenderit quia ipsam recusandae, delectus quasi sequi molestiae debitis illo cupiditate aut? Aut facilis enim quod iusto voluptatum!</p> -->
+            <a href="Form2.html"><button>Click here</button></a>
+            <span class="count">2</span>
+        </div>
+    </div>
+</section>
+</body>
+</html>

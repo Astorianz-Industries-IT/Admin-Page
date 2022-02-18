@@ -1,0 +1,690 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+   
+        <link rel="stylesheet" href="fontawesome-free-5.15.3-web/css/all.css" />
+   
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <title>Setting-Page</title>
+</head>
+<style>
+ 
+    body{
+margin: 0;
+padding: 0;
+font-family: "Roboto", sans-serif;
+}
+
+header{
+z-index: 3;
+position: fixed;
+background: #22242A;
+padding: 20px;
+width: calc(100% - 0%);
+top: 0;
+height: 30px;
+}
+.left_area h3{
+color: #fff;
+margin: 0;
+text-transform: uppercase;
+font-size: 22px;
+font-weight: 900;
+}
+.left_area span{
+color: #19B3D3;
+}
+
+.logout_btn{
+padding: 5px;
+/* background: #d20404; */
+/* background: #D22B2B; */
+background: linear-gradient(to top, #003B6E, #0075DC);
+text-decoration: none;
+float: right;
+margin-top: -30px;
+margin-right: 40px;
+/* border-radius: 2px; */
+border-radius: 4px;
+font-size: 15px;
+font-weight: 600;
+color: #fff;
+transition: 0.5s;
+transition-property: background;
+}
+
+.logout_btn i{
+  margin-left: 6px;
+  /* color: #9658fe; */
+      border: 2px solid white;
+      border-radius: 5px;
+      padding: 1px 1px ;
+      /* background-color: #D22B2B; */
+      background: linear-gradient(to top, #6e0d00, #f76e56);
+}
+.logout_btn:hover{
+/* background: #0B87A6; */
+background: linear-gradient(to top, #6e0000, #f54424);
+}
+
+
+
+
+.sidebar{
+  background: #2f323a;
+  width: 250px;
+  margin-top: 70px;
+padding-top: 20px;
+
+
+height: 100%;
+display: flex;
+flex-direction: column;
+position: fixed;
+top: 0;
+left: 0;
+
+transition: 0.5s;
+transition-property: left;
+overflow-y: auto;
+z-index: 2;
+}
+
+
+
+
+
+
+.profile_info{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+
+.sidebar .profile_info .profile_image{
+width: 90px;
+height: 90px;
+border-radius: 100px;
+margin-bottom: 10px;
+}
+.sidebar .profile_info h4{
+color: #ccc;
+margin-top: 0;
+margin-bottom: 20px;
+}
+.sidebar a{
+color: #fff;
+display: block;
+width: 100%;
+line-height: 60px;
+text-decoration: none;
+padding-left: 40px;
+box-sizing: border-box;
+/* transition: 0.5s; */
+border-bottom: 1px solid black;
+border-top: 1px solid rgba(255,255,255,.1);
+border-left: 5px solid transparent;
+font-family: 'Open Sans', sans-serif;
+transition: all .5s ease; 
+
+transition-property: background;
+}
+.sidebar a:hover{
+background: #19B3D3;
+}
+.sidebar a:active{
+  background: #15fc62e1;
+}
+.sidebar a i{
+font-size: 23px;
+margin-right: 16px;
+}
+.sidebar a span{
+letter-spacing: 1px;
+/* text-transform: uppercase; */
+}
+#check{
+display: none;
+}
+
+label #toggle{
+  position: relative;
+  width: 34px;
+  height: 34px;
+  left: 280px;
+  margin: -1px 0;
+  position: fixed;
+  background: #19B3D3;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.2s;
+  border-radius: 5px;
+
+  box-sizing: border-box;
+  box-shadow: inset 0 0 10px #2e2b2b;
+}
+
+label #toggle:hover{
+  background: #0968a0;
+}
+label #toggle:active{
+  background: #076174;
+  box-shadow: 05px #666;
+  transform: translateY(4px);
+}
+
+
+label #toggle.active{
+  background: #f7226a;
+ 
+}
+
+label #toggle::before {
+content: "";
+position: fixed;
+width: 28px;
+height: 0.2rem;
+background: #fff;
+transition: 0.2s;
+transform: translateY(-10px);
+/* *************BOX SHADOW IS USED TO TO CREAT A SHADOW 
+IN THE MIDDLE IN WHITE */
+
+
+box-shadow: 0 10px 0 #fff;
+  }
+  label #toggle.active::before{
+  transform: translateY(0px) rotate(45deg);
+  box-shadow: 0 0 0 #fff;
+}
+
+
+
+label #toggle::after {
+content: "";
+position: absolute;
+width: 28px;
+height: 0.2rem;
+background: #fff;
+transition: 0.2s;
+transform: translateY(10px);
+
+  }
+  label  #toggle.active::after{
+  transform: translateY(0px) rotate(-45deg);
+
+}
+
+
+
+#check:checked ~ .sidebar{
+
+left: -250px;
+}
+section{
+width: (100% - 250px);
+margin-top: 60px;
+padding: 20px;
+margin-left: 250px;
+/* background: url(background.png) no-repeat;
+background-position: center;
+background-size: cover; */
+/* height: 100vh; */
+transition: 0.5s;
+min-height: 100%;
+}
+
+#check:checked ~ section{
+
+margin-left: 0px;
+}
+
+
+#check{
+display: none;
+}
+
+/* *****Body************** */
+.wrapper{
+  padding:10px 40px;
+ 
+  /* color:#666; */
+}
+.container{
+  width: 70%;
+ 
+  margin-left: 15%;
+  
+}
+.form-group{
+  margin-bottom:20px;
+  
+}
+
+.wrapper label[for=title], label[for=description]{
+  color: rgba(0, 0, 0, 0.753);
+  font-size: 17px;
+  font-weight: bold;
+}
+.wrapper small{
+  color: rgba(0, 0, 0, 0.664);
+}
+.form-group .form-control {
+    font-size: 17px;
+    box-sizing: border-box;
+    width: 100%;
+    /* height: 34px; */
+    height: 45px;
+
+    padding-left: 10px;
+    padding-right: 10px;
+    color: #333333;
+    text-align: left;
+    /* border: 1px solid #d6d6d6; */
+    border: 1px solid #ccc;
+    
+    border-radius: 4px;
+    /* background: white; */
+    background: #fff;
+    outline: none;
+
+
+    border-bottom-width: 5px ;
+    transition: all 0.3 ease;
+
+    
+}
+.form-control{
+  font-size: 16px;
+  font-size: max(16px, 1rem);
+  font-family: inherit;
+ padding: 0.25em 0.5em;
+ background-color: #fff;
+ border: 2px solid ;
+ 
+}
+.form-group input:hover,
+    .form-group textarea:hover {
+      /* border: 1px solid transparent; */
+      box-shadow: 0 0 3px 0 #52baeb;
+     
+      border-bottom-color: #77cef7;;
+    }
+
+    #add {
+     
+    padding: 10px 25px;
+    border-radius: 20px;
+    background-color: rgb(7, 195, 252);
+    color: #e6e7e8;
+    font-weight: bold;
+    }
+    #add:hover{
+      background-color: rgb(74, 209, 250);
+    color: white;
+    }
+
+    #clear{
+      padding: 10px 25px;
+    border-radius: 20px;
+    background-color: rgb(241, 57, 50);
+    color: #e6e7e8;
+    font-weight: bold;
+    float: right;
+    }
+    #clear:hover{
+      background-color: rgb(231, 94, 89);
+    color: white;
+    }
+/* ******Table******* */
+
+
+
+
+
+.item-1{
+
+
+
+
+display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+
+
+
+
+
+
+table{
+
+width: 90%;
+box-shadow:-1px 12px 12px -6px rgba(0,0,0,0.5) ;
+}
+
+table,td,th{
+  padding: 20px;
+  border: 1px solid lightgray;
+  border-collapse:collapse ;
+  text-align: center;
+  cursor: pointer;
+}
+th,td {
+  border-bottom: 5px solid white;
+   
+}
+thead th{
+  position: sticky;
+  background-color: black;
+  color: #e6e7e8;
+}
+td button {
+    border: none;
+    padding: 10px 25px;
+    border-radius: 20px;
+    background-color: rgb(252, 7, 7);
+    color: #e6e7e8;
+    font-weight: bold;
+}
+
+td button:hover {
+    
+    background-color: rgba(202, 59, 49, 0.959);
+    color: white;
+   
+}
+
+
+
+
+
+
+
+
+
+
+td{
+  font-size: 18px;
+}
+
+th{
+  background-color: rgb(44, 228, 54);
+  color: white;
+  
+}
+tr:nth-child(odd){
+  background-color: lightblue;
+}
+tr:nth-child(odd):hover{
+  background-color: dodgerblue;
+  color: white;
+  transform:scale(1.1) ;
+  transition: transform 300ms ease-in;
+}
+tr:nth-child(even){
+  background-color: #ededed;
+}
+tr:nth-child(even):hover{
+  background-color: lightgray;
+  transform: scale(1.1);
+  transition: transform 300ms ease-in;
+}
+
+@media screen and (max-width: 550px) {
+ .sidebar{
+  left: -185px;
+  position: fixed;
+
+ }
+
+ .sidebar a span{
+display: none;
+}
+.sidebar a{
+font-size: 20px;
+margin-left: 165px;
+width: 100%;
+}
+.sidebar .profile_info{
+display: none;
+}
+/* .content{
+margin-left: 60px;
+
+}  */
+section{
+  margin-left: 0;
+  /* margin-top: 0; */
+  padding: 10px 20px;
+  transition: 0s;
+}
+
+#check:checked ~ section{
+  margin-left: 0;
+}
+.sidebar a:hover{
+background: #19B3D3;
+}
+.sidebar a:active{
+  background: #9ad6e0e1;
+}  
+label #toggle{
+ 
+  left: 225px;
+}
+
+
+section .container{
+  width: 100%;
+}
+
+
+
+
+
+}
+@media screen and (max-width: 600px){
+  .wrapper .container{
+    margin-left: 0%;
+  }
+  thead{
+  display: none;
+}
+td{
+  display: block;
+}
+
+td:first-child{
+  background-color:#333 ;
+  color: #fff;
+  text-align: center;
+}
+td:nth-child(2)::before{
+  content: "Name";
+}
+td:nth-child(3)::before{
+  content: "Department";
+}
+td:nth-child(4)::before{
+  content: "Action";
+}
+
+td{
+  text-align: right;
+}
+td::before{
+  float:left ;
+  margin: right 3rem; 
+  font-weight: bold;
+}
+}
+</style>
+
+<body>
+   
+   
+  <input type="checkbox" id="check">
+  <!--header area start-->
+  <header>
+      <label for="check">
+          <div id="toggle"></div>
+      </label>
+    <div class="left_area">
+      <h3>SETTING <span>page</span></h3>
+    </div>
+    <div class="right_area">
+      <a href="#" class="logout_btn"><span>Logout</span><i class="fa fa-sign-out"></i></a>
+    </div>
+  </header>
+
+  <div class="sidebar">
+      <div class="profile_info">
+        <img src="logo.png" class="profile_image" alt="">
+        <h4>Maharshi Dayanand university</h4>
+      </div>
+      <a href="/Folder/folder-1/index1.html"><i class="fas fa-table"></i><span>Index</span></a>
+      <a href="/Folder/Notification-pages/index.html"><i class=" fas fa-bell"></i><span>Notification</span></a>
+      <a href="/Folder/Galley folder/Gallery.html"><i class="fas fa-images"></i><span>Gallery</span></a>
+      <a href="/Folder/folder-1/Form.html"><i class="fas fa-file-image"></i><span>Alumni</span></a>
+      <a href="/Folder/folder-1/indexFaculty.html"><i class="fas fa-file-alt"></i><span>Faculty </span></a>
+      <!-- <a href="#"><i class="fas fa-info-circle"></i><span>About</span></a> -->
+      <a href="#"><i class="fas fa-sliders-h" style="color: yellow;"></i><span>Settings</span></a>
+    </div>
+      <section>
+        <div class="wrapper">
+
+    <div class="container my-4">
+      
+      <fieldset>
+            <legend>
+              <h2>  Add Admin</h2>
+            </legend>
+       
+      
+         
+            <div class="form-group">
+                <label for="title">Name</label>
+                <input type="text" class="form-control" id="title" aria-describedby="emailHelp">
+                <small id="emailHelp" class="form-text text-muted">Add an admin name to current admins list</small>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Department</label>
+                <textarea class="form-control" id="description" rows="3"></textarea>
+            </div>
+            
+
+            <button   id="add" class="btn btn-primary">Add to list</button>
+            <button  id="clear" class="btn btn-primary" onclick="clearStorage()">Clear list</button>
+        </fieldset>
+               
+        </div>
+        <div id="items" class="my-4">
+            <fieldset class="item-1">
+                <legend>
+                  <h2>  Current Admins</h2>
+                </legend>
+           
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">S.No</th>
+                    <th scope="col"> Name</th>
+                    <th scope="col">Department</th> 
+                    <th scope="col">Actions</th> 
+                  </tr>
+                </thead>
+                <tbody id="tableBody">
+                  <tr>
+                    <th scope="row">1</th>
+                    <td> Coffee</td>
+                    <td>You need coffee as you are a coder</td> 
+                    <td><button class="btn btn-sm btn-primary">Remove</button></td> 
+                  </tr>
+                  
+                </tbody>
+              </table>
+        </div>
+    </div>
+
+</section>
+
+        <script>
+            function getAndUpdate(){
+                console.log("Updating List...");
+                tit = document.getElementById('title').value;
+                desc = document.getElementById('description').value;
+                if (localStorage.getItem('itemsJson')==null){
+                    itemJsonArray = [];
+                    itemJsonArray.push([tit, desc]);
+                    localStorage.setItem('itemsJson', JSON.stringify(itemJsonArray))
+                }
+                else{
+                    itemJsonArrayStr = localStorage.getItem('itemsJson')
+                    itemJsonArray = JSON.parse(itemJsonArrayStr);
+                    itemJsonArray.push([tit, desc]);
+                    localStorage.setItem('itemsJson', JSON.stringify(itemJsonArray))
+                }
+                update();
+            }
+
+            function update(){
+                if (localStorage.getItem('itemsJson')==null){
+                    itemJsonArray = []; 
+                    localStorage.setItem('itemsJson', JSON.stringify(itemJsonArray))
+                } 
+                else{
+                    itemJsonArrayStr = localStorage.getItem('itemsJson')
+                    itemJsonArray = JSON.parse(itemJsonArrayStr); 
+                }
+                // Populate the table
+                let tableBody = document.getElementById("tableBody");
+                let str = "";
+                itemJsonArray.forEach((element, index) => {
+                    str += `
+                    <tr>
+                    <th scope="row">${index + 1}</th>
+                    <td>${element[0]}</td>
+                    <td>${element[1]}</td> 
+                    <td><button class="btn btn-sm btn-primary" onclick="deleted(${index})">Delete</button></td> 
+                    </tr>`; 
+                });
+                tableBody.innerHTML = str;
+            }
+            add = document.getElementById("add");
+            add.addEventListener("click", getAndUpdate);
+            update();
+            function deleted(itemIndex){
+                console.log("Delete", itemIndex);
+                itemJsonArrayStr = localStorage.getItem('itemsJson')
+                itemJsonArray = JSON.parse(itemJsonArrayStr);
+                // Delete itemIndex element from the array
+                itemJsonArray.splice(itemIndex, 1);
+                localStorage.setItem('itemsJson', JSON.stringify(itemJsonArray));
+                update();
+
+            }
+            function clearStorage(){
+                if (confirm("Do you areally want to clear?")){
+                console.log('Clearing the storage')
+                localStorage.clear();
+                update()
+                }
+            }
+        </script>
+</body>
+
+</html>
